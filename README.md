@@ -59,9 +59,9 @@ img_001.jpg,thieboudienne
 img_002.jpg,yassa
 
 👉  Dataset (Option 2 ): 
-https://data.mendeley.com/datasets/rrzhwbg3kw/1 (Ghana and cameroun food) 
- 
-https://data.mendeley.com/datasets/2vktdxfxv7/2 (Nigerian food)
+- https://data.mendeley.com/datasets/rrzhwbg3kw/1 (Ghana and cameroun food) 
+
+- https://data.mendeley.com/datasets/2vktdxfxv7/2 (Nigerian food)
 
 
 
