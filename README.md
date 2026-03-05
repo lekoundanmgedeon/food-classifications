@@ -2,7 +2,7 @@
 
 ## 📌 Description
 
-This competition challenges students to train a neural network capable of recognizing different food dishes from images.
+This competition challenges  to train a neural network capable of recognizing different food dishes from images.
 
 The objective is to classify each image into the correct food category using Deep Learning techniques.
 
@@ -27,6 +27,19 @@ Possible dataset sources include:
 👉 African Food Dataset (Kaggle)  
 👉 Food-101 Dataset (subset)
 
+👉 Kaggle Dataset:  
+https://www.kaggle.com/datasets/dansbecker/food-101
+
+
+The dataset contains:
+
+- 101 food categories
+- 101,000 images
+- 750 training images and 250 test images per class
+
+For this competition, we will use a **subset of the dataset** focusing on selected dishes.
+
+
 The dataset contains:
 
 - Images of different food dishes
@@ -41,16 +54,22 @@ Typical structure:
     └── test.csv
 
 Example `train.csv`:
-    id,label
-    img_001.jpg,thieboudienne
-    img_002.jpg,yassa
+id,label
+img_001.jpg,thieboudienne
+img_002.jpg,yassa
+
+👉  Dataset (Option 2 ): 
+([Ghana and cameroun food]) https://data.mendeley.com/datasets/rrzhwbg3kw/1 
+ 
+[Nigerian food] https://data.mendeley.com/datasets/2vktdxfxv7/2
+
 
 
 ---
 
 ## ⚙️ Learning Objectives
 
-Through this competition, students will:
+Through this competition, you will:
 
 - Understand how **image classification with CNNs** works.
 - Apply **data preprocessing and augmentation** techniques.
