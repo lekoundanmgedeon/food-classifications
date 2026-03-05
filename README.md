@@ -64,6 +64,11 @@ img_002.jpg,yassa
 - https://data.mendeley.com/datasets/2vktdxfxv7/2 (Nigerian food)
 
 
+See example images here:
+
+docs/dataset_examples.md
+
+
 
 ---
 
