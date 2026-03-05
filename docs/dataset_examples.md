@@ -1,6 +1,7 @@
 # 🍲 African Food Dataset Examples
 
-This page presents examples of food categories used in the **African Food Image Recognition Challenge**.  
+This page presents some examples of food categories used in the **African Food Image Recognition Challenge**.
+
 Each category corresponds to a label used in the dataset for image classification.
 
 ---
@@ -11,8 +12,8 @@ Each category corresponds to a label used in the dataset for image classificatio
 
 **Label:** `thieboudienne`
 
-**Description:**  
-Thieboudienne (Ceebu Jën) is the **national dish of Senegal**, made with rice, fish, and vegetables cooked in tomato sauce.
+Description:  
+Thieboudienne (Ceebu Jën) is the **national dish of Senegal**, made with rice, fish, and vegetables cooked in tomato sauce. :contentReference[oaicite:0]{index=0}
 
 ---
 
@@ -22,7 +23,7 @@ Thieboudienne (Ceebu Jën) is the **national dish of Senegal**, made with rice, 
 
 **Label:** `jollof_rice`
 
-**Description:**  
+Description:  
 Jollof rice is a popular West African dish made with rice cooked in tomato sauce, spices, and vegetables.
 
 ---
@@ -33,7 +34,7 @@ Jollof rice is a popular West African dish made with rice cooked in tomato sauce
 
 **Label:** `yassa_poulet`
 
-**Description:**  
+Description:  
 Yassa is a Senegalese dish made with marinated chicken, onions, mustard, and lemon.
 
 ---
@@ -44,7 +45,7 @@ Yassa is a Senegalese dish made with marinated chicken, onions, mustard, and lem
 
 **Label:** `mafe`
 
-**Description:**  
+Description:  
 Mafé is a traditional West African peanut stew made with meat or chicken and vegetables in a rich peanut sauce.
 
 ---
@@ -55,7 +56,7 @@ Mafé is a traditional West African peanut stew made with meat or chicken and ve
 
 **Label:** `attieke_poisson`
 
-**Description:**  
+Description:  
 Attiéké is a cassava-based dish from Côte d’Ivoire often served with grilled fish and vegetables.
 
 ---
@@ -63,14 +64,26 @@ Attiéké is a cassava-based dish from Côte d’Ivoire often served with grille
 # 🧾 Dataset Labels
 
 Example label list used in the competition:
+    thieboudienne
+    jollof_rice
+    yassa_poulet
+    mafe
+    attieke_poisson
 
-```text
-thieboudienne
-jollof_rice
-yassa_poulet
-mafe
-attieke_poisson
-
+data/
+│
+├── train/
+│ ├── thieboudienne
+│ ├── jollof_rice
+│ ├── yassa_poulet
+│ ├── mafe
+│ └── attieke_poisson
+│
+├── test/
+│ └── images
+│
+├── train.csv
+└── test.csv
 
 
 
