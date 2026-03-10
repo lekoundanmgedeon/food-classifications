@@ -197,7 +197,7 @@ The final evaluation is based on:
 
 ---
 
-# ▶️ Running the Project
+##▶️ Running the Project
 
 ## Train the Model
 
@@ -207,7 +207,7 @@ python src/train.py
 ## Generate Predictions
 
 ```bash
-python src/train.py
+python src/predict.py
 ```
 
 ## Evaluate Your Model
