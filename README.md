@@ -24,35 +24,11 @@ We will use a food image dataset composed of labeled images for each dish catego
 
  https://data.mendeley.com/datasets/2vktdxfxv7/2 (Nigerian food) (USE THIS DATASET)
 
-Possible dataset sources include:
-
-👉 African Food Dataset  
-
 The dataset contains:
 
 - Images of different food dishes
 - Labels indicating the food category
 - Training and test splits
-
-Typical structure:
-    data/
-    ├── train/
-    ├── test/
-    ├── train.csv
-    └── test.csv
-
-Example `train.csv`:
-id,label
-img_001.jpg,yolof_rice
-img_002.jpg,yassa
-
-👉 Dataset (Option 2 ):  [ YOU SHOULD USE NIGERIAN FOOD ]
-- https://data.mendeley.com/datasets/rrzhwbg3kw/1 (Ghana and cameroun food, do not use it if they don't have same labels for training )
-
-
-## 🍽 Example Images
-
-You can see example images from the dataset here:
 
 ---
 
@@ -133,18 +109,32 @@ Participants must submit:
 
 Example submission format:
     id,label
-    img_901.jpg,thieboudienne
-    img_902.jpg,yassa
+    img_901.jpg,1
+    img_902.jpg,2
 
 
 ---
+# 🏆 Food Classification Challenge - Starter Kit
 
-## 📖 Useful Resources
 
-- Deep Learning for Computer Vision
-- PyTorch Image Classification Tutorial
-- Transfer Learning with CNNs
 
+## 📁 Structure du Projet
+
+```text
+food-classifications/
+├── data/
+│   ├── train/          # Images d'entraînement classées par dossiers
+│   └── test/           # Images de test (votre but est de les prédire)
+├── src/
+│   ├── train.py        # Main script of training
+│   ├── predict.py      # Main script of prediction
+│   └── model_baseline.py # Here you define architecture of your model
+├── evaluation/
+│   ├── evaluate.py     # Compute you model metric (Acc/F1)
+│   └── leaderboard.py  # Update of leaderboard
+└── submissions/        # Folder were you will put your submit result
+
+```
 ---
 
 ## 📌 Baseline Example
@@ -160,10 +150,28 @@ A simple baseline model could include:
 
 Example architecture:
 
-
 More advanced baselines include **ResNet18 with transfer learning**.
 
+## ⚖️ Submission rules
+- Your CSV file must contain exactly 303 lines.
+- The format must be: id (image name) and prediction (class index).
+- The final evaluation is based on Accuracy and the F1-Score Macro.
 ---
+
+
+## Train model
+
+``python src/train.py``
+
+## Submission 
+
+``python src/predict.py`` 
+
+## Evaluation 
+Evaluate score of your model
+``python evaluation/evaluate.py``
+Submit your evaluation on leaderboard 
+``python evaluation/leaderboard.py``
 
 ## 📅 Deadline
 
