@@ -1,121 +1,141 @@
 # 🍲 Food Image Recognition Challenge
 
-## 📌 Description
+## 📌 Overview
 
-This competition challenges  to train a neural network capable of recognizing different food dishes from images.
+This challenge focuses on training a **Deep Learning model capable of recognizing food dishes from images**.
 
-The objective is to classify each image into the correct food category using Deep Learning techniques.
+Participants must build an **image classification system** that predicts the correct food category for each image.
 
-Examples of possible classes include:
+The goal of this project is to practice **Computer Vision with Deep Learning**, especially using:
+
+- Convolutional Neural Networks (CNNs)
+- Transfer Learning
+- Data augmentation techniques
+
+### Example Classes
+
+Some examples of food categories included in the dataset:
 
 - Akara  
-- banga soup  
-- Massa 
-- ewedu soup 
+- Banga Soup  
+- Massa  
+- Ewedu Soup  
 - Jollof Rice  
-
-The goal is to practice **Computer Vision with Deep Learning**, using Convolutional Neural Networks and transfer learning techniques.
 
 ---
 
-## 📂 Dataset
+# 📂 Dataset
 
-We will use a food image dataset composed of labeled images for each dish category.
+We will use the **Nigerian Food Dataset** available on Mendeley:
 
- https://data.mendeley.com/datasets/2vktdxfxv7/2 (Nigerian food) (USE THIS DATASET)
+👉 https://data.mendeley.com/datasets/2vktdxfxv7/2  
+*(This is the dataset to use for the challenge.)*
+
+### Dataset Content
 
 The dataset contains:
 
-- Images of different food dishes
-- Labels indicating the food category
+- Images of various Nigerian food dishes
+- Labels corresponding to each food category
 - Training and test splits
 
----
-
-## ⚙️ Learning Objectives
-
-Through this competition, you will:
-
-- Understand how **image classification with CNNs** works.
-- Apply **data preprocessing and augmentation** techniques.
-- Compare different neural network architectures.
-- Learn how **transfer learning** improves performance on small datasets.
-- Evaluate models using appropriate metrics.
+Participants must train their models using the **training images** and generate predictions for the **test images**.
 
 ---
 
-## 🏆 Evaluation
+# 🎯 Learning Objectives
 
-Models will be evaluated based on:
+By completing this challenge, participants will learn how to:
 
-- **Accuracy**
-- **Macro F1-score**
-- **Confusion Matrix** to visualize misclassifications
-
-The primary ranking metric for the leaderboard will be:
-
-**Macro F1-score**
-
-This metric ensures that all classes are treated equally even if the dataset is imbalanced.
+- Build an **image classification pipeline**
+- Train **Convolutional Neural Networks (CNNs)**
+- Apply **image preprocessing and data augmentation**
+- Use **transfer learning** with pretrained models
+- Compare different model architectures
+- Evaluate models using appropriate metrics
 
 ---
 
-## 🚀 Instructions
+# ⚙️ Project Workflow
 
-### 1. Download the Dataset
+Participants are expected to follow the typical **machine learning workflow**.
 
-Download the dataset and place it in the `data/` directory.
+## 1️⃣ Download the Dataset
 
-### 2. Preprocessing
+Download the dataset and place it inside the `data/` directory.
+
+Example:
+```text 
+    data/
+    ├── train/
+    └── test/ 
+```
+
+
+---
+
+## 2️⃣ Data Preprocessing
 
 Typical preprocessing steps include:
 
-- Resize images (e.g., 224×224)
+- Resize images (e.g., **224 × 224**)
 - Normalize pixel values
-- Apply data augmentation techniques such as:
-  - Random flip
-  - Rotation
-  - Color jitter
+- Convert images to tensors
 
-### 3. Modeling
+### Data Augmentation (Recommended)
 
-Participants should:
+To improve model generalization, apply techniques such as:
 
-- Implement a **baseline CNN model**
-- Experiment with more advanced architectures such as:
-
-  - ResNet
-  - EfficientNet
-  - MobileNet
-  - Vision Transformers
-
-### 4. Training
-
-Recommended practices:
-
-- Train for 10–30 epochs
-- Use Adam or SGD optimizer
-- Apply early stopping or regularization
-
-### 5. Submission
-
-Participants must submit:
-
-- A **Jupyter Notebook (.ipynb)** containing:
-  - preprocessing
-  - model training
-  - evaluation
-- A **prediction file** in CSV format.
-
-Example submission format:
-    id,label
-    img_901.jpg,1
-    img_902.jpg,2
-
+- Random horizontal/vertical flip
+- Random rotation
+- Color jitter
+- Random crop
 
 ---
-## 📁 Structure du Projet
 
+## 3️⃣ Modeling
+
+Participants should first implement a **baseline CNN model**, then experiment with more advanced architectures.
+
+### Possible Architectures
+
+- ResNet
+- EfficientNet
+- MobileNet
+- Vision Transformers (ViT)
+
+Using **transfer learning with pretrained weights** is highly encouraged.
+
+---
+
+## 4️⃣ Training
+
+Recommended training practices:
+
+- Train for **10–30 epochs**
+- Use **Adam** or **SGD** optimizer
+- Use **early stopping**
+- Apply **regularization** (dropout, weight decay)
+
+---
+
+# 🏆 Evaluation
+
+Models will be evaluated using the following metrics:
+
+- **Accuracy**
+- **Macro F1-score**
+- **Confusion Matrix** (for error analysis)
+
+### Primary Ranking Metric
+
+The **Macro F1-score** will be used for the leaderboard ranking.
+
+This metric ensures that **all classes are treated equally**, even when the dataset is imbalanced.
+
+---
+
+# 📁 Project Structure
 ```text
 food-classifications/
 ├── data/
@@ -133,65 +153,102 @@ food-classifications/
 ```
 ---
 
-## 📌 Baseline Example
+# 📌 Baseline Model
 
-A simple baseline model could include:
+A simple baseline model may include:
 
-- Image resizing to **224×224**
+- Image resizing to **224 × 224**
 - A **CNN with 2–3 convolutional layers**
-- ReLU activation
-- MaxPooling layers
-- Adam optimizer
+- **ReLU activation**
+- **MaxPooling layers**
+- **Adam optimizer**
 - Training for **10 epochs**
 
-Example architecture:
+A stronger baseline could use:
 
-More advanced baselines include **ResNet18 with transfer learning**.
+- **ResNet18 with transfer learning**
 
-## ⚖️ Submission rules
-- Your CSV file must contain exactly 303 lines.
-- The format must be: id (image name) and prediction (class index).
-- The final evaluation is based on Accuracy and the F1-Score Macro.
 ---
 
+# 📤 Submission Format
 
-## Train model
+Participants must submit:
 
-``python src/train.py``
+1. A **Jupyter Notebook (.ipynb)** containing:
+   - Data preprocessing
+   - Model training
+   - Evaluation
 
-## Submission 
+2. A **prediction file (.csv)**.
 
-``python src/predict.py`` 
+### Example Submission
+```text 
+id,label
+img_901.jpg,1
+img_902.jpg,2
+```
+- `id` = image filename  
+- `label` = predicted class index
 
-## Evaluation 
-Evaluate score of your model
-```python evaluation/evaluate.py```
-Submit your evaluation on leaderboard 
-```python evaluation/leaderboard.py```
+The final evaluation is based on:
+
+- **Accuracy**
+- **Macro F1-score**
+
+---
+
+# ▶️ Running the Project
+
+## Train the Model
+
+```bash
+python src/train.py
+```
+## Generate Predictions
+
+```bash
+python src/train.py
+```
+
+## Evaluate Your Model
+Compute evaluation metrics:
+```bash 
+python evaluation/evaluate.py
+```
+Submit your results to the leaderboard:
+
+```bash
+python evaluation/leaderboard.py
+```
+## Run the Leaderboard Dashboard
+```bash
+streamlit run app.py 
+```
+## 🏆 Leaderboard
+
+To participate in the leaderboard:
+
+Place your prediction file in:
+
+```bash
+submissions/team_submission.csv
+```
+
+Run the evaluation script:
+```bash
+python evaluation/leaderboard.py
+
+```
+The leaderboard will automatically update in:
+```bash 
+leaderboard/leaderboard.csv
+``` 
+Ranking is based on Macro F1-score.
 
 ## 📅 Deadline
 
-Submissions must be made before **13-03-2026**.
-
-Final results and model comparisons will be discussed in class.
-
----
-
-## 🏆 Leaderboard
-
-To participate:
-
-1. Submit your predictions as: ``submissions/team_submission.csv``
-
-2. Run the evaluation script: ``evaluation/leaderboard.csv``
-
-3. The leaderboard will automatically update in: ``leaderbord/leaderboard.csv``
+📌 Submission deadline : **March 13, 2026**
 
 
-Ranking is based on **Macro F1-score**.
-
----
-
-Good luck and have fun experimenting with Deep Learning! 🚀
 
 
