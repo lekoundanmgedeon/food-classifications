@@ -114,10 +114,6 @@ Example submission format:
 
 
 ---
-# 🏆 Food Classification Challenge - Starter Kit
-
-
-
 ## 📁 Structure du Projet
 
 ```text
@@ -169,9 +165,9 @@ More advanced baselines include **ResNet18 with transfer learning**.
 
 ## Evaluation 
 Evaluate score of your model
-``python evaluation/evaluate.py``
+```python evaluation/evaluate.py```
 Submit your evaluation on leaderboard 
-``python evaluation/leaderboard.py``
+```python evaluation/leaderboard.py```
 
 ## 📅 Deadline
 
