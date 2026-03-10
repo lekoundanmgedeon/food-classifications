@@ -167,7 +167,7 @@ More advanced baselines include **ResNet18 with transfer learning**.
 
 ## 📅 Deadline
 
-Submissions must be made before **[date to be defined]**.
+Submissions must be made before **13-03-2026**.
 
 Final results and model comparisons will be discussed in class.
 
