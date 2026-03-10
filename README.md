@@ -8,10 +8,10 @@ The objective is to classify each image into the correct food category using Dee
 
 Examples of possible classes include:
 
-- Thieboudienne  
-- Yassa Poulet  
-- Mafé  
-- Attiéké  
+- Akara  
+- banga soup  
+- Massa 
+- ewedu soup 
 - Jollof Rice  
 
 The goal is to practice **Computer Vision with Deep Learning**, using Convolutional Neural Networks and transfer learning techniques.
@@ -22,23 +22,11 @@ The goal is to practice **Computer Vision with Deep Learning**, using Convolutio
 
 We will use a food image dataset composed of labeled images for each dish category.
 
+ https://data.mendeley.com/datasets/2vktdxfxv7/2 (Nigerian food) (USE THIS DATASET)
+
 Possible dataset sources include:
 
-👉 African Food Dataset (Kaggle)  
-👉 Food-101 Dataset (subset)
-
-👉 Kaggle Dataset:  (Example of dataset )
-https://www.kaggle.com/datasets/dansbecker/food-101 ( **Too large and not useful for competition**)
-
-
-The dataset contains:
-
-- 101 food categories
-- 101,000 images
-- 750 training images and 250 test images per class
-
-For this competition, we will use a **subset of the dataset** focusing on selected dishes.
-
+👉 African Food Dataset  
 
 The dataset contains:
 
@@ -55,22 +43,16 @@ Typical structure:
 
 Example `train.csv`:
 id,label
-img_001.jpg,thieboudienne
+img_001.jpg,yolof_rice
 img_002.jpg,yassa
 
-👉  Dataset (Option 2 ):  [ YOU SHOULD USE NIGERIAN FOOD ]
-- https://data.mendeley.com/datasets/rrzhwbg3kw/1 (Ghana and cameroun food) 
-
-- https://data.mendeley.com/datasets/2vktdxfxv7/2 (Nigerian food) (YOU USE THIS DATA SET)
+👉 Dataset (Option 2 ):  [ YOU SHOULD USE NIGERIAN FOOD ]
+- https://data.mendeley.com/datasets/rrzhwbg3kw/1 (Ghana and cameroun food, do not use it if they don't have same labels for training )
 
 
 ## 🍽 Example Images
 
 You can see example images from the dataset here:
-
-👉 [Dataset Examples](docs/dataset_examples.md)
-
-
 
 ---
 
@@ -162,7 +144,6 @@ Example submission format:
 - Deep Learning for Computer Vision
 - PyTorch Image Classification Tutorial
 - Transfer Learning with CNNs
-- Food-101 Dataset
 
 ---
 
@@ -196,11 +177,11 @@ Final results and model comparisons will be discussed in class.
 
 To participate:
 
-1. Submit your predictions as: ``results/submission.csv``
+1. Submit your predictions as: ``submissions/team_submission.csv``
 
-2. Run the evaluation script: ``results/leaderboard.csv``
+2. Run the evaluation script: ``evaluation/leaderboard.csv``
 
-3. The leaderboard will automatically update in: ``results/leaderboard.csv``
+3. The leaderboard will automatically update in: ``leaderbord/leaderboard.csv``
 
 
 Ranking is based on **Macro F1-score**.

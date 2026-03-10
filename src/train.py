@@ -1,55 +1,101 @@
 import torch
-from torch.utils.data import DataLoader
-from torchvision import transforms
-from dataset import ImageDataset
+from torch.utils.data import DataLoader, random_split
+from torchvision import transforms, datasets
 from model_baseline import simple_cnn
+import os
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data", "train")
+
+
+# device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+# transforms
 transform = transforms.Compose([
     transforms.Resize((224,224)),
     transforms.ToTensor()
 ])
 
-dataset = ImageDataset(
-    "../data/train.csv",
-    "../data/train/",
-    transform
+# dataset
+dataset = datasets.ImageFolder(
+    DATA_DIR,
+    transform=transform
 )
 
-loader = DataLoader(dataset,batch_size=32,shuffle=True)
+num_classes = len(dataset.classes)
 
-model = simple_cnn(num_classes=10).to(device)
+# split train / validation
+train_size = int(0.8 * len(dataset))
+val_size = len(dataset) - train_size
+
+train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
+
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
+
+# model
+model = simple_cnn(num_classes=num_classes).to(device)
 
 criterion = torch.nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(model.parameters(),lr=0.001)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
+best_acc = 0
 
 for epoch in range(10):
 
-    correct = 0
-    total = 0
+    # TRAIN
+    model.train()
+    train_correct = 0
+    train_total = 0
 
-    for images,labels in loader:
+    for images, labels in train_loader:
 
         images = images.to(device)
         labels = labels.to(device)
 
         outputs = model(images)
-        loss = criterion(outputs,labels)
+        loss = criterion(outputs, labels)
 
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
 
-        _,predicted = torch.max(outputs,1)
+        _, predicted = torch.max(outputs,1)
 
-        total += labels.size(0)
-        correct += (predicted == labels).sum().item()
+        train_total += labels.size(0)
+        train_correct += (predicted == labels).sum().item()
 
-    acc = correct / total
+    train_acc = train_correct / train_total
 
-    print(f"Epoch {epoch+1} | Loss {loss.item():.4f} | Accuracy {acc:.4f}")
+    # VALIDATION
+    model.eval()
+    val_correct = 0
+    val_total = 0
 
+    with torch.no_grad():
 
-torch.save(model.state_dict(),"../models/baseline_model.pth")
+        for images, labels in val_loader:
+
+            images = images.to(device)
+            labels = labels.to(device)
+
+            outputs = model(images)
+
+            _, predicted = torch.max(outputs,1)
+
+            val_total += labels.size(0)
+            val_correct += (predicted == labels).sum().item()
+
+    val_acc = val_correct / val_total
+
+    print(f"Epoch {epoch+1} | Train Acc {train_acc:.4f} | Val Acc {val_acc:.4f}")
+
+    # save best model
+    if val_acc > best_acc:
+        best_acc = val_acc
+        os.makedirs("../models", exist_ok=True)
+        torch.save(model.state_dict(), "../models/baseline_model.pth")
+
+print("Training finished")
+print("Best validation accuracy:", best_acc)

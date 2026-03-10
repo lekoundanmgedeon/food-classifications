@@ -42,53 +42,43 @@ def load_model(model_path, num_classes=10, model_type='simple_cnn', device='cpu'
 
 
 def predict_on_dataset(model, data_loader, device='cpu'):
-    """
-    Make predictions on a dataset.
-    
-    Args:
-        model: Trained model
-        data_loader: DataLoader for test data
-        device: Device to run predictions on
-    
-    Returns:
-        predictions: Array of predicted class indices
-        probabilities: Array of prediction probabilities
-    """
+
+    model.eval()
+
     all_predictions = []
     all_probabilities = []
-    
+    all_ids = []
+
     with torch.no_grad():
-        for images, _ in data_loader:
+
+        for images, ids in data_loader:
+
             images = images.to(device)
-            
+
             outputs = model(images)
+
             probabilities = torch.softmax(outputs, dim=1)
             predictions = torch.argmax(outputs, dim=1)
-            
+
             all_predictions.extend(predictions.cpu().numpy())
             all_probabilities.extend(probabilities.cpu().numpy())
-    
-    return np.array(all_predictions), np.array(all_probabilities)
+            all_ids.extend(ids)
+
+    return np.array(all_ids), np.array(all_predictions), np.array(all_probabilities)
 
 
-def generate_submission(predictions, output_file='../submissions/submission.csv'):
-    """
-    Generate submission file with predictions.
-    
-    Args:
-        predictions: Array of predicted class indices
-        output_file: Path to save submission CSV
-    """
+def generate_submission(ids, predictions, output_file='../submissions/submission.csv'):
+
     submission_df = pd.DataFrame({
-        'id': range(len(predictions)),
+        'id': ids,
         'prediction': predictions
     })
-    
-    submission_df.to_csv(output_file, index=False)
-    print(f"Submission saved to {output_file}")
-    
-    return submission_df
 
+    submission_df.to_csv(output_file, index=False)
+
+    print(f"Submission saved to {output_file}")
+
+    return submission_df
 
 def main():
     """Main prediction pipeline"""
@@ -123,11 +113,11 @@ def main():
     
     # Make predictions
     print("Making predictions...")
-    predictions, probabilities = predict_on_dataset(model, test_loader, device)
-    
+    ids, predictions, probabilities = predict_on_dataset(model, test_loader, device)
+   
     # Generate submission
     print("Generating submission file...")
-    generate_submission(predictions)
+    generate_submission(ids, predictions)
     
     print("Done!")
     print(f"Sample predictions: {predictions[:10]}")
