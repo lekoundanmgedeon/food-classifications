@@ -27,8 +27,8 @@ Possible dataset sources include:
 👉 African Food Dataset (Kaggle)  
 👉 Food-101 Dataset (subset)
 
-👉 Kaggle Dataset:  
-https://www.kaggle.com/datasets/dansbecker/food-101
+👉 Kaggle Dataset:  (Example of dataset )
+https://www.kaggle.com/datasets/dansbecker/food-101 ( **Too large and not useful for competition**)
 
 
 The dataset contains:
@@ -58,10 +58,10 @@ id,label
 img_001.jpg,thieboudienne
 img_002.jpg,yassa
 
-👉  Dataset (Option 2 ): 
+👉  Dataset (Option 2 ):  [ YOU SHOULD USE NIGERIAN FOOD ]
 - https://data.mendeley.com/datasets/rrzhwbg3kw/1 (Ghana and cameroun food) 
 
-- https://data.mendeley.com/datasets/2vktdxfxv7/2 (Nigerian food)
+- https://data.mendeley.com/datasets/2vktdxfxv7/2 (Nigerian food) (YOU USE THIS DATA SET)
 
 
 ## 🍽 Example Images
