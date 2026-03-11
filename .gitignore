@@ -22,7 +22,7 @@ env.old/
 # --- Data & Results ---
 data/
 datasets/
-*.csv
+
 *.tsv
 *.json
 *.xlsx

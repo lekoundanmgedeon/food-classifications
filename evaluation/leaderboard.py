@@ -1,14 +1,13 @@
 import pandas as pd
 import os
-# Assure-toi que evaluate retourne bien (acc, f1)
 from evaluate import evaluate 
 
-# Utilisation de chemins plus robustes
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LEADERBOARD_FILE = os.path.join(BASE_DIR, "leaderboard", "leaderboard.csv")
 
 def update(team_name, submission_file, true_file):
-    # 1. Calcul des scores via ton module evaluate
+    # 1. Calcul des scores via module evaluate
     acc, f1 = evaluate(true_file, submission_file)
 
     # 2. Chargement ou création du leaderboard
