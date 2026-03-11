@@ -197,7 +197,7 @@ The final evaluation is based on:
 
 ---
 
-##▶️ Running the Project
+## ▶️ Running the Project
 
 ## Train the Model
 
