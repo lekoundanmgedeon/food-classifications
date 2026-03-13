@@ -1,3 +1,4 @@
 Rank,Team,accuracy,f1_score
-1,ahmed,0.8052,0.8034
-2,lieumo,0.6429,0.6412
+1,lcd,0.8766,0.8663
+2,ahmed,0.8052,0.8034
+3,lieumo,0.6429,0.6412

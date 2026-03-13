@@ -188,7 +188,8 @@ img_901.jpg,1
 img_902.jpg,2
 ```
 - `id` = image filename  
-- `label` = predicted class index
+- `target` = predicted class index
+- May ensure that in your `team_submission.csv` contains **154 rows**
 
 The final evaluation is based on:
 
@@ -244,6 +245,12 @@ The leaderboard will automatically update in:
 leaderboard/leaderboard.csv
 ``` 
 Ranking is based on Macro F1-score.
+
+## 🏆 Leaderboard
+
+Voici le classement actuel du projet :
+
+![Leaderboard](docs/img/leaderboard.png)
 
 ## 📅 Deadline
 
