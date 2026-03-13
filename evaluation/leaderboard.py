@@ -50,7 +50,7 @@ if __name__ == "__main__":
     BASE_DIR = os.path.dirname(CURRENT_DIR)
 
     # Construction des chemins absolus
-    TEAM_SUB = os.path.join(BASE_DIR, "submissions", "team1.csv")
+    TEAM_SUB = os.path.join(BASE_DIR, "submissions", "lieumo.csv")
     TRUE_LABELS = os.path.join(BASE_DIR, "data", "test_labels.csv")
 
     # Vérification avant de lancer (pour un message d'erreur plus clair)
@@ -60,4 +60,4 @@ if __name__ == "__main__":
     elif not os.path.exists(TEAM_SUB):
         print(f"ERREUR : La soumission est introuvable à : {TEAM_SUB}")
     else:
-        update("team1", TEAM_SUB, TRUE_LABELS)
+        update("LCD", TEAM_SUB, TRUE_LABELS)
