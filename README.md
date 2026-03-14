@@ -246,9 +246,7 @@ leaderboard/leaderboard.csv
 ``` 
 Ranking is based on Macro F1-score.
 
-## 🏆 Leaderboard
-
-Voici le classement actuel du projet :
+Here is actual ranking of competition :
 
 ![Leaderboard](docs/img/leaderboard.png)
 
